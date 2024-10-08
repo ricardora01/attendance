@@ -43,7 +43,7 @@
                                     </div>
                                     <form class="user" action="PHP/login2.php" method="POST">
                                         <div class="form-group">
-                                            <input type="email" class="formcontrol form-control-user"
+                                            <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" name="email" aria-describedby="emailHelp"
                                                 placeholder="Ingresa tu usuario">
                                         </div>
@@ -58,23 +58,16 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" />
-                                            Iniciar Sesión
-                                        <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Iniciar Sesión">
                                     </form>
                                     <hr>
+                                    <!--
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                         </div>

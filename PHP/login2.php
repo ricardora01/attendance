@@ -3,7 +3,7 @@
 $user = $_POST ["email"];
 $password = $_POST ["password"];
 
-if($user == 'admin' && $password == "123abc."){
+if($user == 'admin@localhost.com' && $password == "123abc."){
     header (header: 'Location: ../home.php');
 }else{
     echo '<script language="javascript">alert("Datos incorrectos") </script>';
