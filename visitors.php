@@ -258,6 +258,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre de visitante</th>
+                                            <th>Tipo de ID</th>
                                             <th>Numero de ID</th>
                                             <th>Numero de celular</th>
                                             <th>Departamento a visitar</th>
@@ -270,6 +271,7 @@
                                         <tr>
                                         <th>ID</th>
                                             <th>Nombre de visitante</th>
+                                            <th>Tipo de ID</th>
                                             <th>Numero de ID</th>
                                             <th>Numero de celular</th>
                                             <th>Departamento a visitar</th>
@@ -288,6 +290,7 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
@@ -298,9 +301,11 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
+                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>

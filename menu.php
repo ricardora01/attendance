@@ -27,7 +27,16 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Accesos (Puertas)</span></a>
             </li>
-
+            <li class="nav-item active">
+                <a class="nav-link" href="security-guards.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Vigilantes</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="visitors.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Visitantes</span></a>
+            </li>
              <!-- Divider -->
              <hr class="sidebar-divider my-2">
 

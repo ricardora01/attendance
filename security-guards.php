@@ -262,9 +262,6 @@
                                             <th>Puerta que atiende</th>
                                             <th>Horario de trabajo</th>
                                             <th>Numero de celular</th>
-                                            <th>Numero de seguro social</th>
-                                            <th>CURP</th>
-                                            <th>Dato biometrico</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -275,17 +272,12 @@
                                             <th>Puerta que atiende</th>
                                             <th>Horario de trabajo</th>
                                             <th>Numero de celular</th>
-                                            <th>Numero de seguro social</th>
-                                            <th>CURP</th>
-                                            <th>Dato biometrico</th>
+
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -299,15 +291,9 @@
                                             <td></td>
                                             <td></td>
                                             <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
