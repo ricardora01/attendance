@@ -178,7 +178,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                            placeholder="Ingresa nombre del departamento">
+                            placeholder="Ingresa documento">
                     </div>
                     
             </div>
