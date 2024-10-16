@@ -73,6 +73,28 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        <?php
+                                            include "php/doors.php";
+                                            //echo json_encode($door_list);
+
+                                                foreach ($door_list as $door) {
+                                                    echo "
+                                                    <tr>
+                                                        <td> ". $door['DoorId'] ."</td>,
+                                                        <td>". $door['DoorName'] ."</td>
+                                                        <td>". $door['Description'] ."</td>
+                                                        <td class='text-center'>
+                                                            <a href='#' class='btn btn-warning btn-circle btn-sm'>
+                                                                <i class='fas fa-exclamation-triangle'></i>
+                                                            </a>
+                                                            <a href='#' class='btn btn-danger btn-circle btn-sm'>
+                                                                <i class='fas fa-trash'></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    ";
+                                                }
+                                        ?>
                                         <tr>
                                             <td>1</td>
                                             <td>Acceso Principal Estudiantes</td>
