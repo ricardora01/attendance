@@ -37,6 +37,16 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Visitantes</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="department.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Departamentos</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="document-type.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Tipo de documento</span></a>
+            </li>
              <!-- Divider -->
              <hr class="sidebar-divider my-2">
 
