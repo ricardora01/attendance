@@ -61,89 +61,75 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nombre de visitante</th>
-                                            <th>Tipo de ID</th>
-                                            <th>Numero de ID</th>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Tipo de identificación</th>
+                                            <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
-                                            <th>Departamento a visitar</th>
-                                            <th>Persona a la que visita</th>
-                                            <th>Motivo de visita</th>
-                                            <th>Dato biometrico</th>
+                                            <th>Foto</th>
+                                            <th>Estado</th>
+                                            <th>Calle</th>
+                                            <th>Colonia</th>
+                                            <th>Numero exterior</th>
+                                            <th>Numero interior</th>
+                                            <th>Codigo Postal</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>ID</th>
-                                            <th>Nombre de visitante</th>
-                                            <th>Tipo de ID</th>
-                                            <th>Numero de ID</th>
+                                            <th>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Tipo de identificación</th>
+                                            <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
-                                            <th>Departamento a visitar</th>
-                                            <th>Persona a la que visita</th>
-                                            <th>Motivo de visita</th>
-                                            <th>Dato biometrico</th>
+                                            <th>Foto</th>
+                                            <th>Estado</th>
+                                            <th>Calle</th>
+                                            <th>Colonia</th>
+                                            <th>Numero exterior</th>
+                                            <th>Numero interior</th>
+                                            <th>Codigo Postal</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    <?php
+                                            include "php/visitors.php";
+                                            //echo json_encode($door_list);
+
+                                                foreach ($visitor_list as $visitor) {
+                                                    echo "
+                                                    <tr>
+                                                        <td> ". $visitor['VisitorId'] ."</td>,
+                                                        <td>". $visitor['FirstName'] ."</td>
+                                                        <td>". $visitor['LastName'] ."</td>
+                                                        <td>". $visitor['DocumentTypeId'] ."</td>
+                                                        <td>". $visitor['DocumentNumber'] ."</td>
+                                                        <td>". $visitor['Cellphone'] ."</td>
+                                                        <td>". $visitor['Photo'] ."</td>
+                                                        <td>". $visitor['StateId'] ."</td>
+                                                        <td>". $visitor['Street'] ."</td>
+                                                        <td>". $visitor['Suburb'] ."</td>
+                                                        <td>". $visitor['ExteriorNumber'] ."</td>
+                                                        <td>". $visitor['InteriorNumber'] ."</td>
+                                                        <td>". $visitor['ZipCode'] ."</td>
+                                                        <td class='text-center'>
+                                                            <a href='#' class='btn btn-warning btn-circle btn-sm'>
+                                                                <i class='fas fa-exclamation-triangle'></i>
+                                                            </a>
+                                                            <a href='#' class='btn btn-danger btn-circle btn-sm'>
+                                                                <i class='fas fa-trash'></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    ";
+                                                }
+                                        ?>
+
+
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -152,7 +138,6 @@
 
                 </div>
                 <!-- /.container-fluid -->
-
             </div>
             <!-- End of Main Content -->
 
@@ -217,34 +202,46 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa tipo de ID">
+                            id="exampleInputPassword" name="description" placeholder="Ingresa Apellidos del visitante">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                            placeholder="Ingresa numero de ID">
+                            placeholder="Ingresa Tipo de identificación">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Numero de celular">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                            placeholder="Ingresa departamento a visitar">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa persona a la que visita">
+                            id="exampleInputPassword" name="description" placeholder="Numero de identificación">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                            placeholder="Ingresa motivo de visita">
+                            placeholder="Ingresa numero de celular">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa dato biometrico">
+                            id="exampleInputPassword" name="description" placeholder="Ingresa estado">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"
+                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                            placeholder="Ingresa Calle">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"
+                            id="exampleInputPassword" name="description" placeholder="Ingresa Colonia">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"
+                            id="exampleInputPassword" name="description" placeholder="Ingresa numero exterior">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"
+                            id="exampleInputPassword" name="description" placeholder="Ingresa numero interior">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"
+                            id="exampleInputPassword" name="description" placeholder="Ingresa codigo postal">
                     </div>
             </div>
             <div class="modal-footer">
