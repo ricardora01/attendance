@@ -74,7 +74,7 @@
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            include "php/doors.php";
+                                            include "php/doors/doors.php";
                                             //echo json_encode($door_list);
 
                                                 foreach ($door_list as $door) {
@@ -95,71 +95,6 @@
                                                     ";
                                                 }
                                         ?>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Acceso Principal Estudiantes</td>
-                                            <td>Entrada Lopez Mateos</td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Acceso Espacio</td>
-                                            <td>Entrada Av.Tecnologico (Posgrado)</td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Acceso Princicpal Trabajdores</td>
-                                            <td>Entrada Sergio Espinoza</td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Acceso Paseo de la Cruz 1</td>
-                                            <td>Entrada Redes</td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Acceso Paseo de la Cruz 2</td>
-                                            <td>Entrada Industrial</td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -224,23 +159,23 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="user" action="PHP/login2.php" method="POST">
-            <div class="modal-body">
-               
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                            placeholder="Ingresa nobre del acceso">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa descripcion del acceso">
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
-            </div>
+            <form class="user" action="PHP/doors/create-door.php" method="POST">
+                <div class="modal-body">
+                
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user"
+                                id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                                placeholder="Ingresa nobre del acceso">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user"
+                                id="exampleInputPassword" name="description" placeholder="Ingresa descripcion del acceso">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
+                </div>
             </form>
             </div>
         </div>
