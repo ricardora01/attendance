@@ -8,7 +8,7 @@ $DocumentNumber = $_POST ["DocumentNumber"];
 $Cellphone = $_POST ["Cellphone"];
 $StateId = $_POST ["StateId"];
 $Street = $_POST ["Street"];
-$Suburd = $_POST ["Suburd"];
+$Suburb = $_POST ["Suburb"];
 $ExteriorNumber = $_POST ["ExteriorNumber"];
 $InteriorNumber = $_POST ["InteriorNumber"];
 $ZipCode = $_POST ["ZipCode"];
@@ -19,19 +19,23 @@ $ZipCode = $_POST ["ZipCode"];
 $data = [
     'FirstName' => $FirstName,
     'LastName' => $LastName,
-    'DocumentType' => $DucumentType,
+    'DocumentTypeId' => $DucumentType,
     'DocumentNumber' => $DocumentNumber,
     'Cellphone' => $Cellphone,
     'StateId' => $StateId,
     'Street' => $Street,
-    'Suburd' => $Suburd,
+    'Suburb' => $Suburb,
     'ExteriorNumber' => $ExteriorNumber,
     'InteriorNumber' => $InteriorNumber,
     'ZipCode' => $ZipCode
 ];
 
 try{
-   $sql = 'INSERT INTO visitor (FirsName, LastName, DocumentType, DocumentNumber, Cellphone, StateId, Street, Suburd, ExteriorNumber, InteriorNumber, ZipCode) VALUES(:FirsName, :LastName, :DocumentType, :DocumentNumber, :Cellphone, :StateId, :Street, :Suburd, :ExteriorNumber, :InteriorNumber, :ZipCode)';
+   $sql = 'INSERT INTO visitor 
+   (FirstName, LastName, DocumentTypeId, DocumentNumber, Cellphone, StateId,
+    Street, Suburb, ExteriorNumber, InteriorNumber, ZipCode)
+     VALUES(:FirstName, :LastName, :DocumentTypeId, :DocumentNumber, :Cellphone, 
+     :StateId, :Street, :Suburb, :ExteriorNumber, :InteriorNumber, :ZipCode)';
    
    $statement = $conn->prepare($sql);
    

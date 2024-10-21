@@ -66,7 +66,6 @@
                                             <th>Tipo de identificación</th>
                                             <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
-                                            <th>Foto</th>
                                             <th>Estado</th>
                                             <th>Calle</th>
                                             <th>Colonia</th>
@@ -84,7 +83,6 @@
                                             <th>Tipo de identificación</th>
                                             <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
-                                            <th>Foto</th>
                                             <th>Estado</th>
                                             <th>Calle</th>
                                             <th>Colonia</th>
@@ -96,7 +94,7 @@
                                     </tfoot>
                                     <tbody>
                                     <?php
-                                            include "php/visitors.php";
+                                            include "PHP/visitors/visitors.php";
                                             //echo json_encode($door_list);
 
                                                 foreach ($visitor_list as $visitor) {
@@ -114,7 +112,6 @@
                                                         <td>". $visitor['ExteriorNumber'] ."</td>
                                                         <td>". $visitor['InteriorNumber'] ."</td>
                                                         <td>". $visitor['ZipCode'] ."</td>
-                                                        <td>". $visitor['Photo'] ."</td>
                                                         <td class='text-center'>
                                                             <a href='#' class='btn btn-warning btn-circle btn-sm'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
@@ -229,7 +226,7 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="Suburd" placeholder="Ingresa Colonia">
+                            id="exampleInputPassword" name="Suburb" placeholder="Ingresa Colonia">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
