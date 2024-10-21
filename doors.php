@@ -88,7 +88,7 @@
                                                             <a href='#' class='btn btn-warning btn-circle btn-sm'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </a>
-                                                            <a href='#' class='btn btn-danger btn-circle btn-sm'>
+                                                            <a href='PHP/doors/delete-doors.php?id=".$door['DoorId'] ."' class='btn btn-danger btn-circle btn-sm'>
                                                                 <i class='fas fa-trash'></i>
                                                             </a>
                                                         </td>
