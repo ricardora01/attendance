@@ -69,6 +69,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre entrada</th>
+                                            <th>Descripcion</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </tfoot>

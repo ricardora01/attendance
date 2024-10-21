@@ -108,13 +108,13 @@
                                                         <td>". $visitor['DocumentTypeId'] ."</td>
                                                         <td>". $visitor['DocumentNumber'] ."</td>
                                                         <td>". $visitor['Cellphone'] ."</td>
-                                                        <td>". $visitor['Photo'] ."</td>
                                                         <td>". $visitor['StateId'] ."</td>
                                                         <td>". $visitor['Street'] ."</td>
                                                         <td>". $visitor['Suburb'] ."</td>
                                                         <td>". $visitor['ExteriorNumber'] ."</td>
                                                         <td>". $visitor['InteriorNumber'] ."</td>
                                                         <td>". $visitor['ZipCode'] ."</td>
+                                                        <td>". $visitor['Photo'] ."</td>
                                                         <td class='text-center'>
                                                             <a href='#' class='btn btn-warning btn-circle btn-sm'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
@@ -192,56 +192,56 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="user" action="PHP/login2.php" method="POST">
+            <form class="user" action="PHP/visitors/create-visitors.php" method="POST">
             <div class="modal-body">
                
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                            id="exampleInputEmail" name="FirstName" aria-describedby="emailHelp"
                             placeholder="Ingresa nombre del visitante">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa Apellidos del visitante">
+                            id="exampleInputPassword" name="LastName" placeholder="Ingresa Apellidos del visitante">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                            id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
                             placeholder="Ingresa Tipo de identificación">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Numero de identificación">
+                            id="exampleInputPassword" name="DocumentNumber" placeholder="Numero de identificación">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                            id="exampleInputEmail" name="Cellphone" aria-describedby="emailHelp"
                             placeholder="Ingresa numero de celular">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa estado">
+                            id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                            id="exampleInputEmail" name="Street" aria-describedby="emailHelp"
                             placeholder="Ingresa Calle">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa Colonia">
+                            id="exampleInputPassword" name="Suburd" placeholder="Ingresa Colonia">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa numero exterior">
+                            id="exampleInputPassword" name="ExteriorNumber" placeholder="Ingresa numero exterior">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa numero interior">
+                            id="exampleInputPassword" name="InteriorNumber" placeholder="Ingresa numero interior">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="description" placeholder="Ingresa codigo postal">
+                            id="exampleInputPassword" name="ZipCode" placeholder="Ingresa codigo postal">
                     </div>
             </div>
             <div class="modal-footer">
