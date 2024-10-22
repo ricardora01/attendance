@@ -1,3 +1,6 @@
+<?php
+$id = $_GET ["id"] ??  null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,16 +81,16 @@
                                             include "php/doors/doors.php";
                                             //echo json_encode($door_list);
 
-                                                foreach ($door_list as $door) {
+                                                foreach ($door_list as $key => $door) {
                                                     echo "
                                                     <tr>
                                                         <td> ". $door['DoorId'] ."</td>,
-                                                        <td>". $door['DoorName'] ."</td>
+                                                        <td>". $door['DoorName']  ."</td>
                                                         <td>". $door['Description'] ."</td>
                                                         <td class='text-center'>
-                                                            <a href='#' class='btn btn-warning btn-circle btn-sm'>
+                                                            <a href='doors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
-                                                            </a>
+                                                            </button>
                                                             <a href='PHP/doors/delete-doors.php?id=".$door['DoorId'] ."' class='btn btn-danger btn-circle btn-sm'>
                                                                 <i class='fas fa-trash'></i>
                                                             </a>
@@ -181,7 +184,11 @@
             </div>
         </div>
     </div>
+    
 
+      <?php if($id && $id >= 0){
+        include "modal_update.php";
+      } ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -191,6 +198,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#exampleModal2').modal('show');
+        });
+    </script>
 
 </body>
 
