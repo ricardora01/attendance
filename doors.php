@@ -1,6 +1,5 @@
 <?php
 $id = $_GET ["id"] ??  null;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,10 +85,10 @@ $id = $_GET ["id"] ??  null;
                                                     echo "
                                                     <tr>
                                                         <td> ". $door['DoorId'] ."</td>,
-                                                        <td>". $door['DoorName'] ."</td>
+                                                        <td>". $door['DoorName']  ."</td>
                                                         <td>". $door['Description'] ."</td>
                                                         <td class='text-center'>
-                                                            <button data-toggle='modal' data-target='#exampleModal2' class='btn btn-warning btn-circle btn-sm update_btn'>
+                                                            <a href='doors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </button>
                                                             <a href='PHP/doors/delete-doors.php?id=".$door['DoorId'] ."' class='btn btn-danger btn-circle btn-sm'>
@@ -187,7 +186,7 @@ $id = $_GET ["id"] ??  null;
     </div>
     
 
-      <?php if($id && $id > 0){
+      <?php if($id && $id >= 0){
         include "modal_update.php";
       } ?>
     <!-- Bootstrap core JavaScript-->

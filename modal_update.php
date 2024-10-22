@@ -12,12 +12,16 @@
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <form class="user" action="PHP/doors/create-door.php" method="POST">
+    <form class="user" action="PHP/doors/update-door.php" method="POST">
         <div class="modal-body">
         <?php
-        echo json_encode($door_list[$id]);
-
+        //echo json_encode($door_list[$id]);
         ?>
+                <div class="form-group">
+                    <input type="hidden" class="form-control form-control-user"
+                         name="id" aria-describedby="emailHelp"
+                        placeholder="Ingresa nobre del acceso" value="<?php echo $door_list[$id]['DoorId'];  ?>">
+                </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user"
                         id="exampleInputEmail" name="name" aria-describedby="emailHelp"
