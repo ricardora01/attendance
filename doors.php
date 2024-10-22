@@ -73,6 +73,7 @@ $id = $_GET ["id"] ??  null;
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre entrada</th>
+                                            <th>Descripcion</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </tfoot>
@@ -91,7 +92,7 @@ $id = $_GET ["id"] ??  null;
                                                             <button data-toggle='modal' data-target='#exampleModal2' class='btn btn-warning btn-circle btn-sm update_btn'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </button>
-                                                            <a href='?id= ". $key ."' class='btn btn-danger btn-circle btn-sm'>
+                                                            <a href='PHP/doors/delete-doors.php?id=".$door['DoorId'] ."' class='btn btn-danger btn-circle btn-sm'>
                                                                 <i class='fas fa-trash'></i>
                                                             </a>
                                                         </td>
@@ -184,6 +185,7 @@ $id = $_GET ["id"] ??  null;
             </div>
         </div>
     </div>
+    
 
       <?php if($id && $id > 0){
         include "modal_update.php";
