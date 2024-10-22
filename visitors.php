@@ -116,7 +116,7 @@
                                                             <a href='#' class='btn btn-warning btn-circle btn-sm'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </a>
-                                                            <a href='#' class='btn btn-danger btn-circle btn-sm'>
+                                                            <a href='PHP/visitors/delete-visitors.php?id=".$visitor['VisitorId'] ."' class='btn btn-danger btn-circle btn-sm'>
                                                                 <i class='fas fa-trash'></i>
                                                             </a>
                                                         </td>
