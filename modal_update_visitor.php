@@ -13,7 +13,7 @@
             <div class="modal-body">
 
             <?php
-            echo json_encode($visitor_list[$id]);
+             json_encode($visitor_list[$id]);
             ?>
                
                     <div class="form-group">
@@ -23,46 +23,53 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="LastName" placeholder="Ingresa Apellidos del visitante">
+                            id="exampleInputPassword" name="LastName" 
+                            placeholder="Ingresa Apellidos del visitante" value="<?php echo  $visitor_list[$id]['LastName']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
-                            placeholder="Ingresa Tipo de identificación">
+                            placeholder="Ingresa Tipo de identificación" value="<?php echo  $visitor_list[$id]['DocumentTypeId']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="DocumentNumber" placeholder="Numero de identificación">
+                            id="exampleInputPassword" name="DocumentNumber" 
+                            placeholder="Numero de identificación" value="<?php echo  $visitor_list[$id]['DocumentNumber']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="Cellphone" aria-describedby="emailHelp"
-                            placeholder="Ingresa numero de celular">
+                            placeholder="Ingresa numero de celular" value="<?php echo  $visitor_list[$id]['Cellphone']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">
+                            id="exampleInputPassword" name="StateId" 
+                            placeholder="Ingresa estado" value="<?php echo  $visitor_list[$id]['StateId']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="Street" aria-describedby="emailHelp"
-                            placeholder="Ingresa Calle">
+                            placeholder="Ingresa Calle" value="<?php echo  $visitor_list[$id]['Street']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="Suburb" placeholder="Ingresa Colonia">
+                            id="exampleInputPassword" name="Suburb" 
+                            placeholder="Ingresa Colonia" value="<?php echo  $visitor_list[$id]['Suburb']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="ExteriorNumber" placeholder="Ingresa numero exterior">
+                            id="exampleInputPassword" name="ExteriorNumber" 
+                            placeholder="Ingresa numero exterior" value="<?php echo  $visitor_list[$id]['ExteriorNumber']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="InteriorNumber" placeholder="Ingresa numero interior">
+                            id="exampleInputPassword" name="InteriorNumber" 
+                            placeholder="Ingresa numero interior" value="<?php echo  $visitor_list[$id]['InteriorNumber']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="ZipCode" placeholder="Ingresa codigo postal">
+                            id="exampleInputPassword" name="ZipCode" 
+                            placeholder="Ingresa codigo postal" value="<?php echo  $visitor_list[$id]['ZipCode']?>">
                     </div>
             </div>
             <div class="modal-footer">
