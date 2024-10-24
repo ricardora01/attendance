@@ -13,7 +13,7 @@
             <div class="modal-body">
 
             <?php
-             json_encode($visitor_list[$id]);
+             //json_encode($visitor_list[$id]);
             ?>
                
                     <div class="form-group">
