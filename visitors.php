@@ -67,16 +67,10 @@ $id = $_GET['id'] ??  null;
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Apellidos</th>
                                             <th>Tipo de identificación</th>
                                             <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
                                             <th>Estado</th>
-                                            <th>Calle</th>
-                                            <th>Colonia</th>
-                                            <th>Numero exterior</th>
-                                            <th>Numero interior</th>
-                                            <th>Codigo Postal</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -84,16 +78,10 @@ $id = $_GET['id'] ??  null;
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Apellidos</th>
                                             <th>Tipo de identificación</th>
                                             <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
                                             <th>Estado</th>
-                                            <th>Calle</th>
-                                            <th>Colonia</th>
-                                            <th>Numero exterior</th>
-                                            <th>Numero interior</th>
-                                            <th>Codigo Postal</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </tfoot>
@@ -106,17 +94,11 @@ $id = $_GET['id'] ??  null;
                                                     echo "
                                                     <tr>
                                                         <td> ". $visitor['VisitorId'] ."</td>,
-                                                        <td>". $visitor['FirstName'] ."</td>
-                                                        <td>". $visitor['LastName'] ."</td>
-                                                        <td>". $visitor['DocumentTypeId'] ."</td>
+                                                        <td>". $visitor['FirstName'] ." ". $visitor['LastName'] ."</td>
+                                                        <td>". $visitor['Document'] ."</td>
                                                         <td>". $visitor['DocumentNumber'] ."</td>
                                                         <td>". $visitor['Cellphone'] ."</td>
-                                                        <td>". $visitor['StateId'] ."</td>
-                                                        <td>". $visitor['Street'] ."</td>
-                                                        <td>". $visitor['Suburb'] ."</td>
-                                                        <td>". $visitor['ExteriorNumber'] ."</td>
-                                                        <td>". $visitor['InteriorNumber'] ."</td>
-                                                        <td>". $visitor['ZipCode'] ."</td>
+                                                        <td>". $visitor['State'] ."</td>
                                                         <td class='text-center'>
                                                             <a href='visitors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm'> 
                                                                 <i class='fas fa-exclamation-triangle'></i>
