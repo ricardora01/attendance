@@ -1,3 +1,8 @@
+<?php
+$id = $_GET['id'] ??  null;
+//echo $id;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +102,7 @@
                                             include "PHP/visitors/visitors.php";
                                             //echo json_encode($door_list);
 
-                                                foreach ($visitor_list as $visitor) {
+                                                foreach ($visitor_list as $key => $visitor) { //Se agrego key y se agrego en en href de botton update
                                                     echo "
                                                     <tr>
                                                         <td> ". $visitor['VisitorId'] ."</td>,
@@ -113,7 +118,7 @@
                                                         <td>". $visitor['InteriorNumber'] ."</td>
                                                         <td>". $visitor['ZipCode'] ."</td>
                                                         <td class='text-center'>
-                                                            <a href='#' class='btn btn-warning btn-circle btn-sm'>
+                                                            <a href='visitors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm'> 
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </a>
                                                             <a href='PHP/visitors/delete-visitors.php?id=".$visitor['VisitorId'] ."' class='btn btn-danger btn-circle btn-sm'>
@@ -250,6 +255,17 @@
         </div>
     </div>
 
+    <?php
+
+    // Conficion para saber si la pagina tiene el id con un valor existente
+    if($id && $id >=0){
+        // se incluye el archivo modal update
+        include 'modal_update_visitor.php';
+    }
+
+    ?>
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -259,6 +275,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- se abre el modal de update cuando carga la pagina -->
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#exampleModal2').modal('show');
+        });
+    </script>
 
 </body>
 
