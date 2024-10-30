@@ -22,6 +22,11 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Inicio</span></a>
             </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="presentation.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Presentacion</span></a>
+            </li>
             <li class="nav-item active">
                 <a class="nav-link" href="doors.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
