@@ -189,9 +189,25 @@ $id = $_GET['id'] ??  null;
                             id="exampleInputPassword" name="LastName" placeholder="Ingresa Apellidos del visitante">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
+                        <?php
+                        include "PHP/visitors/document-type.php";
+
+                        //echo json_encode($document_type_list);
+                        ?>
+
+                        <!--<input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
-                            placeholder="Ingresa Tipo de identificación">
+                            placeholder="Ingresa Tipo de identificación">-->
+                            <select class="form-select form-control form-control-user" aria-label="Default select example"
+                            name="DocumentType">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                foreach($document_type_list as $option)
+                                {
+                                    echo "<option value='". $option['DocumentTypeId'] ."'>". $option['Name'] ."</option>";
+                                }
+                                ?>
+                            </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
