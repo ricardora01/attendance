@@ -67,16 +67,10 @@ $id = $_GET['id'] ??  null;
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Apellidos</th>
                                             <th>Tipo de identificación</th>
                                             <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
                                             <th>Estado</th>
-                                            <th>Calle</th>
-                                            <th>Colonia</th>
-                                            <th>Numero exterior</th>
-                                            <th>Numero interior</th>
-                                            <th>Codigo Postal</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -84,16 +78,10 @@ $id = $_GET['id'] ??  null;
                                         <tr>
                                             <th>ID</th>
                                             <th>Nombre</th>
-                                            <th>Apellidos</th>
                                             <th>Tipo de identificación</th>
                                             <th>Numero de identificación</th>
                                             <th>Numero de celular</th>
                                             <th>Estado</th>
-                                            <th>Calle</th>
-                                            <th>Colonia</th>
-                                            <th>Numero exterior</th>
-                                            <th>Numero interior</th>
-                                            <th>Codigo Postal</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </tfoot>
@@ -106,17 +94,11 @@ $id = $_GET['id'] ??  null;
                                                     echo "
                                                     <tr>
                                                         <td> ". $visitor['VisitorId'] ."</td>,
-                                                        <td>". $visitor['FirstName'] ."</td>
-                                                        <td>". $visitor['LastName'] ."</td>
-                                                        <td>". $visitor['DocumentTypeId'] ."</td>
+                                                        <td>". $visitor['FirstName'] ." ". $visitor['LastName'] ."</td>
+                                                        <td>". $visitor['Document'] ."</td>
                                                         <td>". $visitor['DocumentNumber'] ."</td>
                                                         <td>". $visitor['Cellphone'] ."</td>
-                                                        <td>". $visitor['StateId'] ."</td>
-                                                        <td>". $visitor['Street'] ."</td>
-                                                        <td>". $visitor['Suburb'] ."</td>
-                                                        <td>". $visitor['ExteriorNumber'] ."</td>
-                                                        <td>". $visitor['InteriorNumber'] ."</td>
-                                                        <td>". $visitor['ZipCode'] ."</td>
+                                                        <td>". $visitor['State'] ."</td>
                                                         <td class='text-center'>
                                                             <a href='visitors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm'> 
                                                                 <i class='fas fa-exclamation-triangle'></i>
@@ -207,9 +189,25 @@ $id = $_GET['id'] ??  null;
                             id="exampleInputPassword" name="LastName" placeholder="Ingresa Apellidos del visitante">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
+                        <?php
+                        include "PHP/visitors/document-type.php";
+
+                        //echo json_encode($document_type_list);
+                        ?>
+
+                        <!--<input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
-                            placeholder="Ingresa Tipo de identificación">
+                            placeholder="Ingresa Tipo de identificación">-->
+                            <select class="form-select form-control form-control-user" aria-label="Default select example"
+                            name="DocumentType">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                foreach($document_type_list as $option)
+                                {
+                                    echo "<option value='". $option['DocumentTypeId'] ."'>". $option['Name'] ."</option>";
+                                }
+                                ?>
+                            </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
@@ -221,8 +219,28 @@ $id = $_GET['id'] ??  null;
                             placeholder="Ingresa numero de celular">
                     </div>
                     <div class="form-group">
+                        <?php
+                        include "PHP/visitors/state-id.php";
+
+                        //echo json_encode($document_type_list);
+                        ?>
+
+                        <!--<div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">
+                            id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">-->
+                            <select class="form-select form-control form-control-user" aria-label="Default select example"
+                            name="StateId">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                foreach($state_id_list as $option)
+                                {
+                                    echo "<option value='". $option['StateId'] ."'>". $option['Name'] ."</option>";
+                                }
+                                ?>
+                            </select>
+                    </div>
+
+
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
@@ -245,15 +263,17 @@ $id = $_GET['id'] ??  null;
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputPassword" name="ZipCode" placeholder="Ingresa codigo postal">
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
-            </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
+                </div>
+                
             </form>
             </div>
         </div>
     </div>
+    
 
     <?php
 

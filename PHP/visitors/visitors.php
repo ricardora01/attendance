@@ -2,7 +2,8 @@
 
 require('PHP/database.php');
 
-$sql = "SELECT * FROM visitor";
+$sql = "SELECT visitor.VisitorId, visitor.FirstName, visitor.LastName, documenttype.Name AS Document, visitor.DocumentNumber, visitor.Cellphone, state.Name as State FROM visitor 
+JOIN state ON visitor.StateId = state.StateId JOIN documenttype ON visitor.DocumentTypeId = documenttype.DocumentTypeId;";
 
 $statement = $conn->query($sql);
 
