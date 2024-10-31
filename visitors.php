@@ -219,8 +219,28 @@ $id = $_GET['id'] ??  null;
                             placeholder="Ingresa numero de celular">
                     </div>
                     <div class="form-group">
+                        <?php
+                        include "PHP/visitors/state-id.php";
+
+                        //echo json_encode($document_type_list);
+                        ?>
+
+                        <!--<div class="form-group">
                         <input type="text" class="form-control form-control-user"
-                            id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">
+                            id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">-->
+                            <select class="form-select form-control form-control-user" aria-label="Default select example"
+                            name="StateId">
+                                <option selected>Open this select menu</option>
+                                <?php
+                                foreach($state_id_list as $option)
+                                {
+                                    echo "<option value='". $option['StateId'] ."'>". $option['Name'] ."</option>";
+                                }
+                                ?>
+                            </select>
+                    </div>
+
+
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
@@ -243,15 +263,17 @@ $id = $_GET['id'] ??  null;
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputPassword" name="ZipCode" placeholder="Ingresa codigo postal">
                     </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
-            </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
+                </div>
+                
             </form>
             </div>
         </div>
     </div>
+    
 
     <?php
 
