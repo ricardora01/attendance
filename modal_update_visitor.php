@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
-                            placeholder="Ingresa Tipo de identificación" value="<?php echo  $visitor_list[$id]['DocumentTypeId']?>">
+                            placeholder="Ingresa Tipo de identificación" value="<?php echo  $visitor_list[$id]['Document']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"
                             id="exampleInputPassword" name="StateId" 
-                            placeholder="Ingresa estado" value="<?php echo  $visitor_list[$id]['StateId']?>">
+                            placeholder="Ingresa estado" value="<?php echo  $visitor_list[$id]['State']?>">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control form-control-user"

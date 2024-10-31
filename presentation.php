@@ -37,26 +37,7 @@
                         
                             
                             
-                            <div class="col-lg-6 d-none d-lg-block "></div> 
-                            
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-2">¿Eres alumno o empleado ITA?</h1>
-                                        <p class="mb-4">Escanea tu acceso o registra tu numero de control o empleado 
-                                            para poder entrar al Instituto Tecnologico de Aguascalientes</p>
-                                    </div>
-                                                             
-                                    <form class="user" action="presentation.php" method="POST">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
-                                                placeholder="Ingresa tu numero de control o empleado">
-                                        </div>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Ingresar numero">
-                                        
-                                    </form>
-                                </div>
-                            </div>
+                           
                           <div class="col-lg-6 d-none d-lg-block "></div> 
                             
                                 <div class="p-5">
@@ -64,12 +45,20 @@
                                         <h1 class="h4 text-gray-900 mb-2">¿Eres un visitante?</h1>
                                         <p class="mb-4">Registra tus datos para poder entrar al Instituto Tecnologico de Aguascalientes</p>
                                     </div>
-                                    <form class="user">
-                                     
-                                        <a href="visitors.php" class="btn btn-primary btn-user btn-block">
+                                        <form class="user" action="presentation.php" method="POST">
+                                        <div class="p-3">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
+                                                placeholder="Ingresa tu numero de control o empleado">
+                                        </div>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Ingresar numero">
+                                        </div> 
+                                    </form>
+                                    <a href="visitors.php" class="btn btn-primary btn-user btn-block">
                                             Ingresar datos
                                         </a>
-                                    </form>
+
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="security-guards.php">Soy vigilante</a>
