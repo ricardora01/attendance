@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user"
-                        id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
+                        id="exampleInputEmail" name="DocumentTypeId" aria-describedby="emailHelp"
                         placeholder="Ingresa Tipo de identificación" value="<?php echo  $visitor[0]['DocumentTypeId']?>">
                 </div>
                 <div class="form-group">

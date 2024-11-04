@@ -90,7 +90,7 @@ $id = $_GET['id'] ??  null;
                                             include "PHP/visitors/visitors.php";
                                             //echo json_encode($door_list);
 
-                                                foreach ($visitor_list as $key => $visitor) { //Se agrego key y se agrego en en href de botton update
+                                                foreach ($visitor_list as $visitor) { //Se agrego key y se agrego en en href de botton update
                                                     echo "
                                                     <tr>
                                                         <td> ". $visitor['VisitorId'] ."</td>,
