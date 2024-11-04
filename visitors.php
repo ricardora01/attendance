@@ -100,7 +100,7 @@ $id = $_GET['id'] ??  null;
                                                         <td>". $visitor['Cellphone'] ."</td>
                                                         <td>". $visitor['State'] ."</td>
                                                         <td class='text-center'>
-                                                            <a href='visitors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm'> 
+                                                            <a href='visitors.php?id=". $visitor['VisitorId'] ."' class='btn btn-warning btn-circle btn-sm'> 
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </a>
                                                             <a href='PHP/visitors/delete-visitors.php?id=".$visitor['VisitorId'] ."' class='btn btn-danger btn-circle btn-sm'>
@@ -278,7 +278,7 @@ $id = $_GET['id'] ??  null;
     <?php
 
     // Conficion para saber si la pagina tiene el id con un valor existente
-    if($id && $id >=0){
+    if($id && $id > 0){
         // se incluye el archivo modal update
         include 'modal_update_visitor.php';
     }
