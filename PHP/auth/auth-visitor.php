@@ -19,6 +19,11 @@ try{
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
+
+ if($id >= 0){
+    include 'accesslog.php';
+  } 
+
 //echo json_encode($door_list);
 
 ?>
