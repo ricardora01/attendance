@@ -43,6 +43,11 @@
                     <span>Visitantes</span></a>
             </li>
             <li class="nav-item active">
+                <a class="nav-link" href="accesslog.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Bitacora de Visitas</span></a>
+            </li>
+            <li class="nav-item active">
                 <a class="nav-link" href="department.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Departamentos</span></a>
