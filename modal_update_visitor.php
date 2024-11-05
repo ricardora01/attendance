@@ -21,7 +21,6 @@
         </div>
         <form class="user" action="PHP/visitors/update-visitors.php" method="POST">
         <div class="modal-body">
-
         <?php
             //echo json_encode($visitor);
         ?>
