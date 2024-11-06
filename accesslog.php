@@ -73,7 +73,7 @@ $id = $_GET ["id"] ??  null;
                                             <th>ID guardia</th>
                                             <th>Fecha de salida</th>
                                             <th>Hora de salida</th>
-                                            <th>Acciones</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -89,36 +89,29 @@ $id = $_GET ["id"] ??  null;
                                             <th>ID guardia</th>
                                             <th>Fecha de salida</th>
                                             <th>Hora de salida</th>
-                                            <th>Acciones</th>
+                                            
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            include "php/auth/table-accesslog.php";
+                                            include "php/auth/access.php";
                                             //echo json_encode($door_list);
 
-                                                foreach ($access_list as $key => $access) {
+                                                foreach ($access_list as $access) {
                                                     echo "
                                                     <tr>
-                                                        <td> ". $access['AccessLogId'] ."</td>,
+                                                        <td>". $access['AccessLogId'] ."</td>,
                                                         <td>". $access['VisitorId']  ."</td>
                                                         <td>". $access['DateIn'] ."</td>
                                                         <td>". $access['TimeIn'] ."</td>
-                                                        <td>". $access['DoorId'] ."</td>
-                                                        <td>". $access['DepartmentToVisitId'] ."</td>
+                                                        <td>". $access['Door'] ."</td>
+                                                        <td>". $access['department'] ."</td>
                                                         <td>". $access['PersonToVisiti'] ."</td>
                                                         <td>". $access['VisitMotive'] ."</td>
                                                         <td>". $access['GuardId'] ."</td>
                                                         <td>". $access['DateOut'] ."</td>
                                                         <td>". $access['TimeOut'] ."</td>
-                                                        <td class='text-center'>
-                                                            <a href='doors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
-                                                                <i class='fas fa-exclamation-triangle'></i>
-                                                            </button>
-                                                            <a href='PHP/auth/delete-access.php?id=".$access['AccessLogId'] ."' class='btn btn-danger btn-circle btn-sm'>
-                                                                <i class='fas fa-trash'></i>
-                                                            </a>
-                                                        </td>
+                                                        
                                                     </tr>
                                                     ";
                                                 }
