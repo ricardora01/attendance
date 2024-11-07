@@ -1,3 +1,7 @@
+<?php
+$VisitorId = $_GET['VisitorId']
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,16 +77,22 @@
                     </div>
                 </div>
 
+                <div class="col-xl-10 col-lg-12 col-md-9">
+                    <?php
+                    
+                        if($VisitorId && $VisitorId > 0){
+                            include "VisitorInfo.php";
+                        }
+                    ?>
+                </div>
+
             </div>
 
             
 
+            
+
         </div>
-
-
-
-
-    
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
