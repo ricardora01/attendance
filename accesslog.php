@@ -116,13 +116,19 @@ $id = $_GET ["id"] ??  null;
                                                         <td>". $access['GuardId'] ."</td>
                                                         <td>". $access['DateOut'] ."</td>
                                                         <td>". $access['TimeOut'] ."</td>
-                                                        <td>
-                                                            <a href='php/auth/visitout.php?id=".$access['AccessLogId']."' class='btn btn-success btn-icon-split btn-sm'>
+                                                        <td>";
+
+                                                        if( $access['DateOut'] == ''){
+                                                            echo "
+                                                             <a href='php/auth/visitout.php?id=".$access['AccessLogId']."' class='btn btn-success btn-icon-split btn-sm'>
                                                                 <span class='icon text-white-50'>
                                                                     <i class='fas fa-check'></i>
                                                                 </span>
                                                                 <span class='text'>Registrar salida</span>
                                                             </a>
+                                                            ";
+                                                        }
+                                                    echo "
                                                         </td>
                                                     </tr>
                                                     ";
