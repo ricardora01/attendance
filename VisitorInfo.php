@@ -93,7 +93,6 @@ try {
       <td>
         <?php
             include "PHP/department/departments.php";
-
             //echo json_encode($document_type_list);
             ?>
 
@@ -101,7 +100,7 @@ try {
             <input type="text" class="form-control form-control-user"
                 id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">-->
                 <select class="form-select form-control form-control-user" aria-label="Default select example"
-                name="StateId">
+                name="departmentToVisit">
                     <option selected>Open this select menu</option>
                     <?php
                     foreach($department_list as $option)
