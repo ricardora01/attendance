@@ -3,13 +3,13 @@ require('../database.php');
 
 date_default_timezone_set("America/Mexico_City");
 
-$VisitorId = 1;
+$VisitorId = $_POST["visitorId"]; // modificar variable
 $DateIn = date("Y-m-d");
 $TimeIn = date("h:i a");
 $DoorId = 2;
-$DepartmentToVisitId = 3;
-$PersonToVisiti = "prueba";
-$VisitMotive = "prueba";
+$DepartmentToVisitId = $_POST["departmentToVisit"]; // modificar variable
+$PersonToVisiti = $_POST["personToVisit"]; // modificar variable
+$VisitMotive = $_POST["motive"]; // modificar variable
 $GuardId = 4;
 
 $data = [

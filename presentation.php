@@ -1,5 +1,6 @@
 <?php
-$VisitorId = $_GET['VisitorId']
+// Ternario
+$VisitorId = $_GET['VisitorId'] ?? null;
 ?>
 
 <!DOCTYPE html>
