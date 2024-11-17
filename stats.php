@@ -45,31 +45,180 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Estadisticas</h1>
+
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Visitantes en el dia</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <?php
+                                                                                                     try {
+                                                                                                        require('PHP/database.php');
+                                                                                                        $sql = "SELECT COUNT(AccessLogId) as Access1 FROM `accesslog`;";
+                                                                                                        $statement = $conn->query($sql);
+                                                                                                        $Access = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                                                                        
+                                                                                                      //  echo json_encode($Access);
+                                                                                                    } catch(PDOException $e) {
+                                                                                                        die();
+                                                                                                        echo "Error: " . $e->getMessage();
+                                                                                                    }
+                                                                                                    //$Access_str = json_encode($Access);
+                                                                                                    echo $Access[0]['Access1'];
+                                                                                                    ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Visitantes dentro del Instituto Tecnológico de Aguascalientes</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+                                                                                                    
+                                                                                                            try {
+                                                                                                                require('PHP/database.php');
+                                                                                                               // $sql = "SELECT COUNT(AccessLogId) as Access1 FROM `accesslog`;";
+                                                                                                                $sql = "SELECT COUNT(AccessLogId) as AccessIn FROM `accesslog` WHERE TimeOut IS NULL;";
+                                                                                                                $statement = $conn->query($sql);
+                                                                                                                $AccessI = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                                                                                
+                                                                                                                //  echo json_encode($Access);
+                                                                                                            }   catch(PDOException $e) {
+                                                                                                                die();
+                                                                                                                echo "Error: " . $e->getMessage();
+                                                                                                            }
+                                                                                                                //$Access_str = json_encode($Access);
+                                                                                                                echo $AccessI[0]['AccessIn'];
+                                                                                                    ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas  fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tasks Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Visitantes que han salido
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php
+                                                                                                    
+                                                                                                    try {
+                                                                                                        require('PHP/database.php');
+                                                                                                       // $sql = "SELECT COUNT(AccessLogId) as Access1 FROM `accesslog`;";
+                                                                                                        $sql = "SELECT COUNT(AccessLogId) as AccessOut FROM `accesslog` WHERE TimeOut IS NOT NULL;";
+                                                                                                        $statement = $conn->query($sql);
+                                                                                                        $AccessO = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                                                                        
+                                                                                                        //  echo json_encode($Access);
+                                                                                                    }   catch(PDOException $e) {
+                                                                                                        die();
+                                                                                                        echo "Error: " . $e->getMessage();
+                                                                                                    }
+                                                                                                        //$Access_str = json_encode($Access);
+                                                                                                        echo $AccessO[0]['AccessOut'];
+                                                                                            ?></div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Fecha</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+                                                                                                date_default_timezone_set("America/Mexico_City");
+                                                                                                $DateIn = date("Y-m-d");
+                                                                                                echo $DateIn;
+                                                                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
                         <div class="col-xl-8 col-lg-7">
-                             <!-- Donut Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <canvas id="myPieChart"></canvas>
+                                <!-- Donut Chart -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Accesos</h6>
                                     </div>
-                                    <hr>
-                                    Styling for the donut chart can be found in the
-                                    <code>/js/demo/chart-pie-demo.js</code> file.
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4">
+                                            <canvas id="myPieChart"></canvas>
+                                        </div>
+                                        <hr>
+                                        Styling for the donut chart can be found in the
+                                        <code>/js/demo/chart-pie-demo.js</code> file.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                             <!-- Donut Chart -->
+                            <div class="col-xl-4 col-lg-5">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Departamentos</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="chart-pie pt-4">
+                                            <canvas id="myPieChart2"></canvas>
+                                        </div>
+                                        <hr>
+                                        Styling for the donut chart can be found in the
+                                        <code>/js/demo/chart-pie-demo.js</code> file.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -122,6 +271,8 @@
         </div>
     </div>
 
+    
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -166,6 +317,63 @@
                 <?php echo $doors[2]['Contador'] ?>, 
                 <?php echo $doors[3]['Contador'] ?>, 
                 <?php echo $doors[4]['Contador'] ?>
+                ], // chart value
+            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
+            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
+            hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+            backgroundColor: "rgb(255,255,255)",
+            bodyFontColor: "#858796",
+            borderColor: '#dddfeb',
+            borderWidth: 1,
+            xPadding: 15,
+            yPadding: 15,
+            displayColors: false,
+            caretPadding: 10,
+            },
+            legend: {
+            display: false
+            },
+            cutoutPercentage: 80,
+        },
+        });
+
+    </script>
+    <?php
+        try {
+            require('PHP/database.php');
+            $sql = "SELECT COUNT(DepartmentToVisitId) as Contador FROM `accesslog` GROUP BY DepartmentToVisitId;";
+            $statement = $conn->query($sql);
+            $department = $statement->fetchAll(PDO::FETCH_ASSOC);
+            //echo json_encode($doors);
+        } catch(PDOException $e) {
+            die();
+            echo "Error: " . $e->getMessage();
+        }
+    ?>
+    <script>
+
+                // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#858796';
+
+        // Pie Chart Example
+        var ctx = document.getElementById("myPieChart2");
+        var myPieChart2 = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ["CONTROL ESCOLAR", "DESARROLLO ACADEMICO", "DIRECCION", "TITULACION", "POSGRADO"], // titles of the charts
+            datasets: [{
+            data: [
+                <?php echo $department[0]['Contador'] ?>, 
+                <?php echo $department[1]['Contador'] ?>, 
+                <?php echo $department[2]['Contador'] ?>, 
+                <?php echo $department[3]['Contador'] ?>, 
+                <?php echo $department[4]['Contador'] ?>
                 ], // chart value
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
