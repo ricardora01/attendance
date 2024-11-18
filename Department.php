@@ -1,3 +1,6 @@
+<?php
+$id = $_GET ["id"] ??  null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +23,9 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -36,23 +42,22 @@
             <!-- Main Content -->
             <div id="content">
 
-                <!--topbar-->
-                <?php
-                    include 'topbar.php';
-                ?>
-
+            <!--topbar-->
+            <?php
+                include 'topbar.php';
+            ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Registro de departamentos</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Departamentos del ITA</h1>
 
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                             <!-- Button trigger modal -->
-                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Agregar datos nuevos
+                           <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Agregar departamento
                             </button>
                         </div>
                         <div class="card-body">
@@ -61,54 +66,39 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nombre</th>
+                                            <th>Departamento</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                        <th>ID</th>
-                                            <th>Nombre</th>
+                                            <th>ID</th>
+                                            <th>Departamento</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td></td>
-                                            <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-circle btn-sm">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-danger btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <?php
+                                            include "php/department/departments.php";
+                                            //echo json_encode($door_list);
+
+                                                foreach ($department_list as $key => $department) {
+                                                    echo "
+                                                    <tr>
+                                                        <td> ". $department['Department'] ."</td>,
+                                                        <td>". $department['Name']  ."</td>
+                                                        <td class='text-center'>
+                                                            <a href='Department.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
+                                                                <i class='fas fa-exclamation-triangle'></i>
+                                                            </button>
+                                                            <a href='PHP/department/delete-department.php?id=".$department['Department'] ."' class='btn btn-danger btn-circle btn-sm'>
+                                                                <i class='fas fa-trash'></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    ";
+                                                }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -162,7 +152,8 @@
         </div>
     </div>
 
-    <!-- Modal -->
+
+        <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -172,25 +163,29 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form class="user" action="PHP/login2.php" method="POST">
-            <div class="modal-body">
-               
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-user"
-                            id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                            placeholder="Ingresa nombre del departamento">
-                    </div>
-                    
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
-                <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
-            </div>
+            <form class="user" action="PHP/department/create-department.php" method="POST">
+                <div class="modal-body">
+                
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-user"
+                                id="exampleInputEmail" name="name" aria-describedby="emailHelp"
+                                placeholder="Ingresa nombre del departamento">
+                        </div>
+                        
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary btn-user" value="Guardar cambios">
+                </div>
             </form>
             </div>
         </div>
     </div>
+    
 
+      <?php if($id && $id >= 0){
+        include "modal_update_department.php";
+      } ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -200,6 +195,19 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#exampleModal2').modal('show');
+        });
+    </script>
 
 </body>
 
