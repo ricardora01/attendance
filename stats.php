@@ -58,11 +58,20 @@
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Visitantes en el dia</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <?php
+
+                                                                                                    date_default_timezone_set("America/Mexico_City");
+                                                                                                    $Date = date("Y-m-d");
                                                                                                      try {
                                                                                                         require('PHP/database.php');
-                                                                                                        $sql = "SELECT COUNT(AccessLogId) as Access1 FROM `accesslog`;";
+                                                                                                        //echo $Date;
+
+
+                                                                                                        $sql = "SELECT COUNT(DateIn) as Access1 FROM `accesslog` WHERE DateIn = '$Date';";
                                                                                                         $statement = $conn->query($sql);
+                                                                                
                                                                                                         $Access = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+                                                                                                        //echo json_encode($Access);
                                                                                                         
                                                                                                       //  echo json_encode($Access);
                                                                                                     } catch(PDOException $e) {
@@ -94,7 +103,7 @@
                                                                                                             try {
                                                                                                                 require('PHP/database.php');
                                                                                                                // $sql = "SELECT COUNT(AccessLogId) as Access1 FROM `accesslog`;";
-                                                                                                                $sql = "SELECT COUNT(AccessLogId) as AccessIn FROM `accesslog` WHERE TimeOut IS NULL;";
+                                                                                                                $sql = "SELECT COUNT(AccessLogId) as AccessIn FROM accesslog WHERE DateOut IS NULL AND DateIn = '$Date';";
                                                                                                                 $statement = $conn->query($sql);
                                                                                                                 $AccessI = $statement->fetchAll(PDO::FETCH_ASSOC);
                                                                                                                 
@@ -130,7 +139,7 @@
                                                                                                     try {
                                                                                                         require('PHP/database.php');
                                                                                                        // $sql = "SELECT COUNT(AccessLogId) as Access1 FROM `accesslog`;";
-                                                                                                        $sql = "SELECT COUNT(AccessLogId) as AccessOut FROM `accesslog` WHERE TimeOut IS NOT NULL;";
+                                                                                                        $sql = "SELECT COUNT(AccessLogId) as AccessOut FROM `accesslog` WHERE DateOut IS NOT NULL AND DateIn = '$Date';";
                                                                                                         $statement = $conn->query($sql);
                                                                                                         $AccessO = $statement->fetchAll(PDO::FETCH_ASSOC);
                                                                                                         
@@ -182,9 +191,8 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                        <div class="col-xl-8 col-lg-7">
                                 <!-- Donut Chart -->
-                            <div class="col-xl-4 col-lg-5">
+                            <div class="col-md-6 col-12">
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3">
@@ -202,7 +210,7 @@
                                 </div>
                             </div>
                              <!-- Donut Chart -->
-                            <div class="col-xl-4 col-lg-5">
+                            <div class="col-md-6 col-12">
                                 <div class="card shadow mb-4">
                                     <!-- Card Header - Dropdown -->
                                     <div class="card-header py-3">
@@ -219,7 +227,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        
                     </div>
 
 
@@ -312,11 +320,11 @@
             labels: ["Puerta 1", "Puerta 2", "Puerta 3", "Puerta 4", "Puerta 5"], // titles of the charts
             datasets: [{
             data: [
-                <?php echo $doors[0]['Contador'] ?>, 
-                <?php echo $doors[1]['Contador'] ?>, 
-                <?php echo $doors[2]['Contador'] ?>, 
-                <?php echo $doors[3]['Contador'] ?>, 
-                <?php echo $doors[4]['Contador'] ?>
+                <?php echo $doors[0]['Contador'] ?? 0 ?>, 
+                <?php echo $doors[1]['Contador'] ?? 0 ?>, 
+                <?php echo $doors[2]['Contador'] ?? 0 ?>, 
+                <?php echo $doors[3]['Contador'] ?? 0 ?>, 
+                <?php echo $doors[4]['Contador'] ?? 0 ?>
                 ], // chart value
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
@@ -349,7 +357,7 @@
             $sql = "SELECT COUNT(DepartmentToVisitId) as Contador FROM `accesslog` GROUP BY DepartmentToVisitId;";
             $statement = $conn->query($sql);
             $department = $statement->fetchAll(PDO::FETCH_ASSOC);
-            //echo json_encode($doors);
+            echo json_encode($department);
         } catch(PDOException $e) {
             die();
             echo "Error: " . $e->getMessage();
@@ -369,11 +377,11 @@
             labels: ["CONTROL ESCOLAR", "DESARROLLO ACADEMICO", "DIRECCION", "TITULACION", "POSGRADO"], // titles of the charts
             datasets: [{
             data: [
-                <?php echo $department[0]['Contador'] ?>, 
-                <?php echo $department[1]['Contador'] ?>, 
-                <?php echo $department[2]['Contador'] ?>, 
-                <?php echo $department[3]['Contador'] ?>, 
-                <?php echo $department[4]['Contador'] ?>
+                <?php echo $department[0]['Contador'] ?? 0 ?>, 
+                <?php echo $department[1]['Contador'] ?? 0 ?>, 
+                <?php echo $department[2]['Contador'] ?? 0 ?>, 
+                <?php echo $department[3]['Contador'] ?? 0 ?>, 
+                <?php echo $department[4]['Contador'] ?? 0 ?>
                 ], // chart value
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
