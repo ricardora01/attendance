@@ -239,7 +239,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Visitantes en el dia</div>
+                                               Total de visitantes</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"> <?php
                                                                                                      try {
                                                                                                         require('PHP/database.php');
@@ -271,7 +271,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Visitantes dentro del Instituto Tecnológico de Aguascalientes</div>
+                                               Total de visitantes dentro del Instituto Tecnológico de Aguascalientes</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
                                                                                                     
                                                                                                             try {
@@ -304,7 +304,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Visitantes que han salido
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total de visitantes que han salido
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
