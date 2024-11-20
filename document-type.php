@@ -88,7 +88,7 @@ $id = $_GET ["id"] ??  null;
                                                         <td>". $document['DocumentTypeId'] ."</td>,
                                                         <td>". $document['Name']  ."</td>
                                                         <td class='text-center'>
-                                                            <a href='document-type.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
+                                                            <a href='document-type.php?id=". $document['DocumentTypeId'] ."' class='btn btn-warning btn-circle btn-sm update_btn'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </button>
                                                             <a href='PHP/document-type/delete-document.php?id=".$document['DocumentTypeId'] ."' class='btn btn-danger btn-circle btn-sm'>
@@ -183,7 +183,7 @@ $id = $_GET ["id"] ??  null;
     </div>
     
 
-      <?php if($id && $id >= 0){
+      <?php if($id && $id > 0){
         include "modal_update_document.php";
       } ?>
     <!-- Bootstrap core JavaScript-->

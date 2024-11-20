@@ -88,7 +88,7 @@ $id = $_GET ["id"] ??  null;
                                                         <td> ". $department['Department'] ."</td>,
                                                         <td>". $department['Name']  ."</td>
                                                         <td class='text-center'>
-                                                            <a href='Department.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
+                                                            <a href='Department.php?id=". $department['Department'] ."' class='btn btn-warning btn-circle btn-sm update_btn'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </button>
                                                             <a href='PHP/department/delete-department.php?id=".$department['Department'] ."' class='btn btn-danger btn-circle btn-sm'>
@@ -183,7 +183,7 @@ $id = $_GET ["id"] ??  null;
     </div>
     
 
-      <?php if($id && $id >= 0){
+      <?php if($id && $id > 0){
         include "modal_update_department.php";
       } ?>
     <!-- Bootstrap core JavaScript-->

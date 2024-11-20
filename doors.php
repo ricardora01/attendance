@@ -91,7 +91,7 @@ $id = $_GET ["id"] ??  null;
                                                         <td>". $door['DoorName']  ."</td>
                                                         <td>". $door['Description'] ."</td>
                                                         <td class='text-center'>
-                                                            <a href='doors.php?id=".$key."' class='btn btn-warning btn-circle btn-sm update_btn'>
+                                                            <a href='doors.php?id=". $door['DoorId'] ."' class='btn btn-warning btn-circle btn-sm update_btn'>
                                                                 <i class='fas fa-exclamation-triangle'></i>
                                                             </button>
                                                             <a href='PHP/doors/delete-doors.php?id=".$door['DoorId'] ."' class='btn btn-danger btn-circle btn-sm'>
@@ -189,7 +189,7 @@ $id = $_GET ["id"] ??  null;
     </div>
     
 
-      <?php if($id && $id >= 0){
+      <?php if($id && $id > 0){
         include "modal_update.php";
       } ?>
     <!-- Bootstrap core JavaScript-->
