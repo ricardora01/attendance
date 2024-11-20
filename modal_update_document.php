@@ -1,9 +1,9 @@
 <?php
     try {
         require('PHP/database.php');
-        $sql = "SELECT * FROM door WHERE DoorId = $id";
+        $sql = "SELECT * FROM documenttype WHERE DocumentTypeId = $id";
         $statement = $conn->query($sql);
-        $door = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $document = $statement->fetchAll(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
         die();
         echo "Error: " . $e->getMessage();
@@ -15,12 +15,12 @@
 <div class="modal-dialog" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agrega el nuevo acceso</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agrega el documento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <form class="user" action="PHP/doors/update-door.php" method="POST">
+    <form class="user" action="PHP/document-type/update-document.php" method="POST">
         <div class="modal-body">
         <?php
         //echo json_encode($door_list[$id]);
@@ -28,18 +28,14 @@
                 <div class="form-group">
                     <input type="hidden" class="form-control form-control-user"
                          name="id" aria-describedby="emailHelp"
-                        placeholder="Ingresa nobre del acceso" value="<?php echo $door[0]['DoorId'];  ?>">
+                        placeholder="Ingresa nobre del acceso" value="<?php echo $document[0]['DocumentTypeId'];  ?>">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user"
                         id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                        placeholder="Ingresa nobre del acceso" value="<?php echo $door[0]['DoorName'];  ?>">
+                        placeholder="Ingresa nombre del documento" value="<?php echo $document[0]['Name'];  ?>">
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control form-control-user"
-                        id="exampleInputPassword" name="description" placeholder="Ingresa descripcion del acceso"
-                        value="<?php echo $door[0]['Description'];  ?>">
-                </div>
+               
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary btn-user" data-dismiss="modal">Close</button>
