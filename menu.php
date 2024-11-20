@@ -57,6 +57,11 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Tipo de documento</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="stats.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Estadisticas</span></a>
+            </li>
              <!-- Divider -->
              <hr class="sidebar-divider my-2">
 
