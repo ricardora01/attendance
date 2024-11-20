@@ -1,5 +1,13 @@
 <?php
-
+    try {
+        require('PHP/database.php');
+        $sql = "SELECT * FROM door WHERE DoorId = $id";
+        $statement = $conn->query($sql);
+        $door = $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        die();
+        echo "Error: " . $e->getMessage();
+    }
 ?>
 
 <!-- Modal Update-->
@@ -20,17 +28,17 @@
                 <div class="form-group">
                     <input type="hidden" class="form-control form-control-user"
                          name="id" aria-describedby="emailHelp"
-                        placeholder="Ingresa nobre del acceso" value="<?php echo $door_list[$id]['DoorId'];  ?>">
+                        placeholder="Ingresa nobre del acceso" value="<?php echo $door[0]['DoorId'];  ?>">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user"
                         id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                        placeholder="Ingresa nobre del acceso" value="<?php echo $door_list[$id]['DoorName'];  ?>">
+                        placeholder="Ingresa nobre del acceso" value="<?php echo $door[0]['DoorName'];  ?>">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user"
                         id="exampleInputPassword" name="description" placeholder="Ingresa descripcion del acceso"
-                        value="<?php echo $door_list[$id]['Description'];  ?>">
+                        value="<?php echo $door[0]['Description'];  ?>">
                 </div>
         </div>
         <div class="modal-footer">

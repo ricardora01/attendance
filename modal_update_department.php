@@ -1,3 +1,15 @@
+<?php
+    try {
+        require('PHP/database.php');
+        $sql = "SELECT * FROM department WHERE Department = $id";
+        $statement = $conn->query($sql);
+        $department = $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch(PDOException $e) {
+        die();
+        echo "Error: " . $e->getMessage();
+    }
+?>
+
 <!-- Modal Update-->
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
@@ -16,12 +28,12 @@
                 <div class="form-group">
                     <input type="hidden" class="form-control form-control-user"
                          name="id" aria-describedby="emailHelp"
-                        placeholder="Ingresa nobre del acceso" value="<?php echo $department_list[$id]['Department'];  ?>">
+                        placeholder="Ingresa nobre del acceso" value="<?php echo $department[0]['Department'];  ?>">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control form-control-user"
                         id="exampleInputEmail" name="name" aria-describedby="emailHelp"
-                        placeholder="Ingresa nombre del departamento" value="<?php echo $department_list[$id]['Name'];  ?>">
+                        placeholder="Ingresa nombre del departamento" value="<?php echo $department[0]['Name'];  ?>">
                 </div>
                
         </div>
