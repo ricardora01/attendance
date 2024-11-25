@@ -87,7 +87,7 @@ $id = $_GET ["id"] ??  null;
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            include "php/security-guards/guards.php";
+                                            include "PHP/security-guards/guards.php";
                                             //echo json_encode($door_list);
 
                                                 foreach ($guard_list as $key => $guard) {

@@ -17,15 +17,11 @@
             </div>
 
              <!-- Nav Item - Dashboard -->
-             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Inicio</span></a>
-            </li>
+             
               <li class="nav-item active">
                 <a class="nav-link" href="presentation.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Presentacion</span></a>
+                    <span>Inicio</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="doors.php">
@@ -65,12 +61,7 @@
              <!-- Divider -->
              <hr class="sidebar-divider my-2">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+            
 
             <!-- Divider 
             <hr class="sidebar-divider">-->

@@ -204,8 +204,7 @@
                                             <canvas id="myPieChart"></canvas>
                                         </div>
                                         <hr>
-                                        Styling for the donut chart can be found in the
-                                        <code>/js/demo/chart-pie-demo.js</code> file.
+                                        Registro de las puertas usadas como accesos al Instituto Tecnológico de Aguascalientes
                                     </div>
                                 </div>
                             </div>
@@ -222,8 +221,7 @@
                                             <canvas id="myPieChart2"></canvas>
                                         </div>
                                         <hr>
-                                        Styling for the donut chart can be found in the
-                                        <code>/js/demo/chart-pie-demo.js</code> file.
+                                        Registro de departamentos visitados en el Instituto Tecnológico de Aguascalientes
                                     </div>
                                 </div>
                             </div>

@@ -79,7 +79,7 @@ $id = $_GET ["id"] ??  null;
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                            include "php/document-type/documents.php";
+                                            include "PHP/document-type/documents.php";
                                             //echo json_encode($door_list);
 
                                                 foreach ($document_list as $key => $document) {
