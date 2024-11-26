@@ -487,7 +487,7 @@
             $sql = "SELECT COUNT(DepartmentToVisitId) as Contador FROM `accesslog` GROUP BY DepartmentToVisitId;";
             $statement = $conn->query($sql);
             $department = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($department);
+            //echo json_encode($department);
         } catch(PDOException $e) {
             die();
             echo "Error: " . $e->getMessage();

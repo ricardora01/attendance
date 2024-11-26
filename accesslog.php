@@ -120,7 +120,7 @@ $id = $_GET ["id"] ??  null;
 
                                                         if( $access['DateOut'] == ''){
                                                             echo "
-                                                             <a href='php/auth/visitout.php?id=".$access['AccessLogId']."' class='btn btn-success btn-icon-split btn-sm'>
+                                                             <a href='PHP/auth/visitout.php?id=".$access['AccessLogId']."' class='btn btn-success btn-icon-split btn-sm'>
                                                                 <span class='icon text-white-50'>
                                                                     <i class='fas fa-check'></i>
                                                                 </span>
