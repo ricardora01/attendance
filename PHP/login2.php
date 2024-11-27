@@ -15,6 +15,10 @@ try {
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     if(count($result) == 1 ){
+        session_start();
+        $_SESSION['id'] = $result[0]['EmployeeId'];
+        $_SESSION['firstname'] = $result[0]['FirstName'];
+        $_SESSION['lastname'] = $result[0]['LastName'];
         header (header: 'Location: ../presentation.php');
     } else {
         header (header: 'Location: ../index.php?error=1');

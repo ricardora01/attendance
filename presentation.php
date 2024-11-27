@@ -1,4 +1,5 @@
 <?php
+require_once("PHP/session.php");
 // Ternario
 $VisitorId = $_GET['VisitorId'] ?? null;
 ?>
