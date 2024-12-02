@@ -1,3 +1,7 @@
+<?php
+require_once("PHP/session.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

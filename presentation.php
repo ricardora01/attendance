@@ -62,7 +62,7 @@ $VisitorId = $_GET['VisitorId'] ?? null;
                                         </div> 
                                     </form>
                                     <a href="visitors.php" class="btn btn-primary btn-user btn-block">
-                                            Ingresar datos
+                                            Registrar nuevo visitante
                                         </a>
 
                                     <hr>

@@ -1,4 +1,5 @@
 <?php
+require_once("PHP/session.php");
 $id = $_GET ["id"] ??  null;
 ?>
 <!DOCTYPE html>
@@ -68,7 +69,7 @@ $id = $_GET ["id"] ??  null;
                                             <th>ID</th>
                                             <th>Nombre</th>
                                             <th>Numero de empleado</th>
-                                            <th>Contraseña</th>
+                                            
                                             <th>Turno de trabajo</th>
                                             <th>Numero de celular</th>
                                             <th>Acciones</th>
@@ -79,7 +80,7 @@ $id = $_GET ["id"] ??  null;
                                             <th>ID</th>
                                             <th>Nombre</th>
                                             <th>Numero de empleado</th>
-                                            <th>Contraseña</th>
+                                            
                                             <th>Turno de trabajo</th>
                                             <th>Numero de celular</th>
                                             <th>Acciones</th>
@@ -96,7 +97,7 @@ $id = $_GET ["id"] ??  null;
                                                         <td> ". $guard['GuardId'] ."</td>,
                                                         <td>". $guard['FirstName']  ." ". $guard['LastName']  ."</td>
                                                         <td>". $guard['EmployeeId'] ."</td>
-                                                        <td>". $guard['Password'] ."</td>
+                                                        
                                                         <td>". $guard['WorkingHours'] ."</td>
                                                         <td>". $guard['Cellphone'] ."</td>
                                                         <td class='text-center'>
