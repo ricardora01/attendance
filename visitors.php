@@ -1,7 +1,9 @@
 <?php
+require_once("PHP/session.php");
 $id = $_GET['id'] ??  null;
 //echo $id;
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@ $id = $_GET['id'] ??  null;
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>Registro de visitantes</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -202,14 +204,15 @@ $id = $_GET['id'] ??  null;
                             id="exampleInputEmail" name="DocumentType" aria-describedby="emailHelp"
                             placeholder="Ingresa Tipo de identificación">-->
                             <select class="form-select form-control form-control-user" aria-label="Default select example"
-                            name="DocumentType">
-                                <option selected>Open this select menu</option>
+                            name="DocumentType" > 
+                            <option value="" selected>Selecciona Tipo de doumento de identificación</option>
                                 <?php
                                 foreach($document_type_list as $option)
                                 {
                                     echo "<option value='". $option['DocumentTypeId'] ."'>". $option['Name'] ."</option>";
                                 }
                                 ?>
+                                
                             </select>
                     </div>
                     <div class="form-group">
@@ -233,7 +236,8 @@ $id = $_GET['id'] ??  null;
                             id="exampleInputPassword" name="StateId" placeholder="Ingresa estado">-->
                             <select class="form-select form-control form-control-user" aria-label="Default select example"
                             name="StateId">
-                                <option selected>Open this select menu</option>
+                            
+                            <option value="" selected>Selecciona el estado</option>
                                 <?php
                                 foreach($state_id_list as $option)
                                 {
@@ -311,7 +315,12 @@ $id = $_GET['id'] ??  null;
         $(window).on('load', function() {
             $('#exampleModal2').modal('show');
         });
+
+        
+
     </script>
+
+    
 
 </body>
 

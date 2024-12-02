@@ -1,4 +1,5 @@
 <?php
+require_once("PHP/session.php");
 $id = $_GET ["id"] ??  null;
 ?>
 <!DOCTYPE html>

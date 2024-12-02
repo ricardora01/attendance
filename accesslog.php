@@ -1,6 +1,9 @@
 <?php
+require_once("PHP/session.php");
 $id = $_GET ["id"] ??  null;
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,10 +58,10 @@ $id = $_GET ["id"] ??  null;
                      <!-- DataTales Example -->
                      <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                           <!-- Button trigger modal -->
+                           <!-- Button trigger modal
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Agregar acceso
-                            </button>
+                            </button> -->
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -120,7 +123,7 @@ $id = $_GET ["id"] ??  null;
 
                                                         if( $access['DateOut'] == ''){
                                                             echo "
-                                                             <a href='php/auth/visitout.php?id=".$access['AccessLogId']."' class='btn btn-success btn-icon-split btn-sm'>
+                                                             <a href='PHP/auth/visitout.php?id=".$access['AccessLogId']."' class='btn btn-success btn-icon-split btn-sm'>
                                                                 <span class='icon text-white-50'>
                                                                     <i class='fas fa-check'></i>
                                                                 </span>
