@@ -43,20 +43,12 @@
                                     </div>
                                     <form class="user" action="PHP/login2.php" method="POST">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" name="email" aria-describedby="emailHelp"
-                                                placeholder="Ingresa tu usuario">
+                                            <input type="text" class="form-control form-control-user"
+                                                name="user" placeholder="Ingresa tu usuario">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" name="password" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
                                         </div>
                                         <input type="submit" class="btn btn-primary btn-user btn-block" value="Iniciar Sesión">
                                     </form>
