@@ -1,5 +1,5 @@
 <?php
-require_once("PHP/session.php");
+//require_once("PHP/session.php");
 ?>
 
 <!DOCTYPE html>
@@ -440,6 +440,24 @@ require_once("PHP/session.php");
             echo "Error: " . $e->getMessage();
         }
     ?>
+          <?php
+          require('PHP/database.php');
+
+          $sql = "SELECT department.Name, Count(*) FROM accesslog JOIN department 
+          ON accesslog.DepartmentToVisitId = department.Department GROUP BY DepartmentToVisitId;";
+          $statement = $conn->query($sql);
+          $department_list = $statement->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+
+         <?php
+          require('PHP/database.php');
+          $sql = "SELECT door.DoorId, door.DoorName, COUNT(*) AS AccessCount
+          FROM accesslog JOIN door ON accesslog.DoorId = door.DoorId GROUP BY door.DoorId, door.DoorName;";
+          $statement = $conn->query($sql);
+          $puertas_list = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            ?>
+
     <script>
 
                 // Set new default font family and font color to mimic Bootstrap's default styling
@@ -451,14 +469,25 @@ require_once("PHP/session.php");
         var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Puerta 1", "Puerta 2", "Puerta 3", "Puerta 4", "Puerta 5"], // titles of the charts
+            labels: [
+                <?php 
+                $dataValues = [];
+                foreach ($puertas_list as $puerta) {
+                    $dataValues[] = $puerta['door.DoorName'] ?? 0;
+                }
+                echo implode(', ', $dataValues);
+                ?>
+
+               ], // titles of the charts
             datasets: [{
             data: [
-                <?php echo $doors[0]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[1]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[2]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[3]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[4]['Contador'] ?? 0 ?>
+                <?php 
+                    $dataValues = [];
+                    foreach ($doors as $door) {
+                        $dataValues[] = $door['Contador'] ?? 0;
+                    }
+                    echo implode(', ', $dataValues);
+                    ?>
                 ], // chart value
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
@@ -508,14 +537,22 @@ require_once("PHP/session.php");
         var myPieChart2 = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["CONTROL ESCOLAR", "DESARROLLO ACADEMICO", "DIRECCION", "TITULACION", "POSGRADO"], // titles of the charts
+            labels: [<?php $dataValues = [];
+                    foreach ($doors as $door) {
+                        $dataValues[] = $door[''] ?? 0;
+                    }
+                    echo implode(', ', $dataValues);
+
+                ?>], // titles of the charts
             datasets: [{
             data: [
-                <?php echo $department[0]['Contador'] ?? 0 ?>, 
-                <?php echo $department[1]['Contador'] ?? 0 ?>, 
-                <?php echo $department[2]['Contador'] ?? 0 ?>, 
-                <?php echo $department[3]['Contador'] ?? 0 ?>, 
-                <?php echo $department[4]['Contador'] ?? 0 ?>
+                <?php 
+                    $dataValues = [];
+                    foreach ($department as $dept) {
+                        $dataValues[] = $dept['Contador'] ?? 0;
+                    }
+                    echo implode(', ', $dataValues);
+                    ?>
                 ], // chart value
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
