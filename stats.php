@@ -429,37 +429,10 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <?php
-        try {
-            require('PHP/database.php');
-            $sql = "SELECT COUNT(DoorId) as Contador FROM `accesslog` GROUP BY DoorId;";
-            $statement = $conn->query($sql);
-            $doors = $statement->fetchAll(PDO::FETCH_ASSOC);
-            //echo json_encode($doors);
-        } catch(PDOException $e) {
-            die();
-            echo "Error: " . $e->getMessage();
-        }
+
     ?>
-          <?php
-          require('PHP/database.php');
-
-          $sql = "SELECT department.Name, Count(*) FROM accesslog JOIN department 
-          ON accesslog.DepartmentToVisitId = department.Department GROUP BY DepartmentToVisitId;";
-          $statement = $conn->query($sql);
-          $department_list = $statement->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-
-         <?php
-          require('PHP/database.php');
-          $sql = "SELECT door.DoorId, door.DoorName, COUNT(*) AS AccessCount
-          FROM accesslog JOIN door ON accesslog.DoorId = door.DoorId GROUP BY door.DoorId, door.DoorName;";
-          $statement = $conn->query($sql);
-          $puertas_list = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-            ?>
 
     <script>
-
                 // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#858796';
@@ -469,26 +442,9 @@
         var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: [
-                <?php 
-                $dataValues = [];
-                foreach ($puertas_list as $puerta) {
-                    $dataValues[] = $puerta['door.DoorName'] ?? 0;
-                }
-                echo implode(', ', $dataValues);
-                ?>
-
-               ], // titles of the charts
+            labels: [], // titles of the charts
             datasets: [{
-            data: [
-                <?php 
-                    $dataValues = [];
-                    foreach ($doors as $door) {
-                        $dataValues[] = $door['Contador'] ?? 0;
-                    }
-                    echo implode(', ', $dataValues);
-                    ?>
-                ], // chart value
+            data: [], // chart value
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
             hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -515,19 +471,34 @@
 
     </script>
     <?php
+        /// Primero ejecutamos la consulta
         try {
             require('PHP/database.php');
-            $sql = "SELECT COUNT(DepartmentToVisitId) as Contador FROM `accesslog` GROUP BY DepartmentToVisitId;";
+            $sql = "SELECT department.Name, Count(*) AS contador FROM accesslog JOIN department 
+            ON accesslog.DepartmentToVisitId = department.Department GROUP BY DepartmentToVisitId";
             $statement = $conn->query($sql);
-            $department = $statement->fetchAll(PDO::FETCH_ASSOC);
-            //echo json_encode($department);
+            $deparments = $statement->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($deparments);
         } catch(PDOException $e) {
             die();
             echo "Error: " . $e->getMessage();
         }
+    // Despues recorremos cada valor y lo asignamos a un nuevo array, ddonde solo almacenaremos los nombre de los departamentos
+        $label_department = [];
+        foreach($deparments as $department){
+            array_push($label_department, $department['Name']);
+        }
+    // Recorremos de neuvo cada valor y esta vez asignamos en un nuevo array solo los valores del contador
+        $count_department = [];
+        foreach($deparments as $department){
+            array_push($count_department, $department['contador']);
+        }
     ?>
     <script>
-
+        var count_depatrment =<?php echo json_encode($count_department); ?>;//asignamos a una variable de javascript el valor del array de php count_department
+        var label_department =<?php echo json_encode($label_department); ?>; //asignamos a una variable de javascript el valor del array de php label_department
+           
+           console.log("asdasd");
                 // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#858796';
@@ -537,23 +508,9 @@
         var myPieChart2 = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: [<?php $dataValues = [];
-                    foreach ($doors as $door) {
-                        $dataValues[] = $door[''] ?? 0;
-                    }
-                    echo implode(', ', $dataValues);
-
-                ?>], // titles of the charts
+            labels: label_department, // asignamos array de javascript
             datasets: [{
-            data: [
-                <?php 
-                    $dataValues = [];
-                    foreach ($department as $dept) {
-                        $dataValues[] = $dept['Contador'] ?? 0;
-                    }
-                    echo implode(', ', $dataValues);
-                    ?>
-                ], // chart value
+            data:count_depatrment, // asignamos array de javascript
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
             hoverBorderColor: "rgba(234, 236, 244, 1)",
