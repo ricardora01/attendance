@@ -427,12 +427,33 @@
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
-
     <?php
-
+    require('PHP/database.php');
+        /// Primero ejecutamos la consulta
+        try {
+            $sql = "SELECT door.DoorName, Count(*) AS Contador FROM accesslog JOIN door ON accesslog.DoorId = door.DoorId GROUP BY accesslog.DoorId";
+            $statement = $conn->query($sql);
+            $doors = $statement->fetchAll(PDO::FETCH_ASSOC);
+            //echo json_encode($doors);
+        } catch(PDOException $e) {
+            die();
+            echo "Error: " . $e->getMessage();
+        }
+    // Despues recorremos cada valor y lo asignamos a un nuevo array, donde solo almacenaremos los nombre de las puertas
+        $label_door = [];
+        foreach($doors as $door){
+            array_push($label_door, $door['DoorName']);
+        }
+    // Recorremos de neuvo cada valor y esta vez asignamos en un nuevo array solo los valores del contador
+        $count_door = [];
+        foreach($doors as $door){
+            array_push($count_door, $door['Contador']);
+        }
     ?>
-
     <script>
+        var count_door =<?php echo json_encode($count_door); ?>;//asignamos a una variable de javascript el valor del array de php count_department
+        var label_door =<?php echo json_encode($label_door); ?>; //asignamos a una variable de javascript el valor del array de php label_department
+
                 // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#858796';
@@ -442,9 +463,9 @@
         var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: [], // titles of the charts
+            labels: label_door, // asignamos array de javascript
             datasets: [{
-            data: [], // chart value
+            data: count_door, // asignamos array de javascript
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
             hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -470,15 +491,17 @@
         });
 
     </script>
+
+    
+ 
     <?php
         /// Primero ejecutamos la consulta
         try {
-            require('PHP/database.php');
+            //require('PHP/database.php');
             $sql = "SELECT department.Name, Count(*) AS contador FROM accesslog JOIN department 
             ON accesslog.DepartmentToVisitId = department.Department GROUP BY DepartmentToVisitId";
             $statement = $conn->query($sql);
             $deparments = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($deparments);
         } catch(PDOException $e) {
             die();
             echo "Error: " . $e->getMessage();
@@ -498,7 +521,6 @@
         var count_depatrment =<?php echo json_encode($count_department); ?>;//asignamos a una variable de javascript el valor del array de php count_department
         var label_department =<?php echo json_encode($label_department); ?>; //asignamos a una variable de javascript el valor del array de php label_department
            
-           console.log("asdasd");
                 // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#858796';
