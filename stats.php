@@ -1,5 +1,5 @@
 <?php
-require_once("PHP/session.php");
+//require_once("PHP/session.php");
 ?>
 
 <!DOCTYPE html>
@@ -427,11 +427,11 @@ require_once("PHP/session.php");
 
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
-
     <?php
+    require('PHP/database.php');
+        /// Primero ejecutamos la consulta
         try {
-            require('PHP/database.php');
-            $sql = "SELECT COUNT(DoorId) as Contador FROM `accesslog` GROUP BY DoorId;";
+            $sql = "SELECT door.DoorName, Count(*) AS Contador FROM accesslog JOIN door ON accesslog.DoorId = door.DoorId GROUP BY accesslog.DoorId";
             $statement = $conn->query($sql);
             $doors = $statement->fetchAll(PDO::FETCH_ASSOC);
             //echo json_encode($doors);
@@ -439,8 +439,20 @@ require_once("PHP/session.php");
             die();
             echo "Error: " . $e->getMessage();
         }
+    // Despues recorremos cada valor y lo asignamos a un nuevo array, donde solo almacenaremos los nombre de las puertas
+        $label_door = [];
+        foreach($doors as $door){
+            array_push($label_door, $door['DoorName']);
+        }
+    // Recorremos de neuvo cada valor y esta vez asignamos en un nuevo array solo los valores del contador
+        $count_door = [];
+        foreach($doors as $door){
+            array_push($count_door, $door['Contador']);
+        }
     ?>
     <script>
+        var count_door =<?php echo json_encode($count_door); ?>;//asignamos a una variable de javascript el valor del array de php count_department
+        var label_door =<?php echo json_encode($label_door); ?>; //asignamos a una variable de javascript el valor del array de php label_department
 
                 // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -451,15 +463,9 @@ require_once("PHP/session.php");
         var myPieChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Puerta 1", "Puerta 2", "Puerta 3", "Puerta 4", "Puerta 5"], // titles of the charts
+            labels: label_door, // asignamos array de javascript
             datasets: [{
-            data: [
-                <?php echo $doors[0]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[1]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[2]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[3]['Contador'] ?? 0 ?>, 
-                <?php echo $doors[4]['Contador'] ?? 0 ?>
-                ], // chart value
+            data: count_door, // asignamos array de javascript
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
             hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -485,20 +491,36 @@ require_once("PHP/session.php");
         });
 
     </script>
+
+    
+ 
     <?php
+        /// Primero ejecutamos la consulta
         try {
-            require('PHP/database.php');
-            $sql = "SELECT COUNT(DepartmentToVisitId) as Contador FROM `accesslog` GROUP BY DepartmentToVisitId;";
+            //require('PHP/database.php');
+            $sql = "SELECT department.Name, Count(*) AS contador FROM accesslog JOIN department 
+            ON accesslog.DepartmentToVisitId = department.Department GROUP BY DepartmentToVisitId";
             $statement = $conn->query($sql);
-            $department = $statement->fetchAll(PDO::FETCH_ASSOC);
-            //echo json_encode($department);
+            $deparments = $statement->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
             die();
             echo "Error: " . $e->getMessage();
         }
+    // Despues recorremos cada valor y lo asignamos a un nuevo array, ddonde solo almacenaremos los nombre de los departamentos
+        $label_department = [];
+        foreach($deparments as $department){
+            array_push($label_department, $department['Name']);
+        }
+    // Recorremos de neuvo cada valor y esta vez asignamos en un nuevo array solo los valores del contador
+        $count_department = [];
+        foreach($deparments as $department){
+            array_push($count_department, $department['contador']);
+        }
     ?>
     <script>
-
+        var count_depatrment =<?php echo json_encode($count_department); ?>;//asignamos a una variable de javascript el valor del array de php count_department
+        var label_department =<?php echo json_encode($label_department); ?>; //asignamos a una variable de javascript el valor del array de php label_department
+           
                 // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#858796';
@@ -508,15 +530,9 @@ require_once("PHP/session.php");
         var myPieChart2 = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["CONTROL ESCOLAR", "DESARROLLO ACADEMICO", "DIRECCION", "TITULACION", "POSGRADO"], // titles of the charts
+            labels: label_department, // asignamos array de javascript
             datasets: [{
-            data: [
-                <?php echo $department[0]['Contador'] ?? 0 ?>, 
-                <?php echo $department[1]['Contador'] ?? 0 ?>, 
-                <?php echo $department[2]['Contador'] ?? 0 ?>, 
-                <?php echo $department[3]['Contador'] ?? 0 ?>, 
-                <?php echo $department[4]['Contador'] ?? 0 ?>
-                ], // chart value
+            data:count_depatrment, // asignamos array de javascript
             backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', "#3275a8", "#71309c"],
             hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', "#21547a", "#532473" ],
             hoverBorderColor: "rgba(234, 236, 244, 1)",

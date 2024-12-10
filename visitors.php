@@ -1,5 +1,5 @@
 <?php
-require_once("PHP/session.php");
+//require_once("PHP/session.php");
 $id = $_GET['id'] ??  null;
 //echo $id;
 ?>
@@ -205,7 +205,7 @@ $id = $_GET['id'] ??  null;
                             placeholder="Ingresa Tipo de identificación">-->
                             <select class="form-select form-control form-control-user" aria-label="Default select example"
                             name="DocumentType" > 
-                            <option value="" selected>Selecciona Tipo de doumento de identificación</option>
+                            <option  selected>Selecciona Tipo de doumento de identificación</option>
                                 <?php
                                 foreach($document_type_list as $option)
                                 {

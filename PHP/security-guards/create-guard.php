@@ -12,7 +12,7 @@ $data = [
     'FirstName' => $name,
     'LastName' => $lastname,
     'EmployeeId' => $employeeid,
-    'Password' => $password,
+    'Password' => hash('sha256',$password),
     'WorkingHours' => $workinghours,
     'Cellphone' => $cellphone
 ];
